@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Symbolic Transfer Runner</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: monospace;
+      padding: 2em;
+      background: #111;
+      color: #00ff99;
+    }
+    h1 {
+      color: #00ffff;
+    }
+    button {
+      padding: 0.5em 1em;
+      margin-top: 1em;
+      background-color: #00ff99;
+      color: #111;
+      border: none;
+      font-size: 1em;
+      cursor: pointer;
+    }
+    #log {
+      margin-top: 2em;
+      white-space: pre-wrap;
+      background: #222;
+      padding: 1em;
+      border-left: 4px solid #00ffff;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧠 Symbolic Routing Console</h1>
+  <button onclick="launchSymbolic()">Run All Transfers</button>
+  <div id="log">📡 Status: Waiting for launch...</div>
+
+  <script src="script.js"></script>
+  <script>
+    async function launchSymbolic() {
+      document.getElementById("log").innerText = "🚀 Launching symbolic runAll()...";
+      try {
+        await runAll(); // This calls your full transfer chain
+        document.getElementById("log").innerText += "\n✅ All symbolic transfers complete.";
+      } catch (e) {
+        document.getElementById("log").innerText += `\n❌ Error: ${e}`;
+      }
+    }
+  </script>
+</body>
+</html>
+
+
